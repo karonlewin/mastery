@@ -1,3 +1,5 @@
 $(function() {
-  $('#calendar').fullCalendar({});
+  $('#calendar').fullCalendar({
+    events: '/appointments.json'
+  });
 });
