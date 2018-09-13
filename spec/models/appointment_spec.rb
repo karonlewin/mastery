@@ -8,8 +8,13 @@ RSpec.describe Appointment, type: :model do
     expect(appointment).to_not be_valid
   end
 
-  it 'is not valid without a scheduled time' do
-    appointment.scheduled_at = nil
+  it 'is not valid without a start_at time' do
+    appointment.start_at = nil
+    expect(appointment).to_not be_valid
+  end
+
+  it 'is not valid without a end_at time' do
+    appointment.end_at = nil
     expect(appointment).to_not be_valid
   end
 end
