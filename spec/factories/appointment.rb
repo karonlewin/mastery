@@ -2,9 +2,9 @@ require 'faker'
 
 FactoryBot.define do
   factory :appointment do
-    random_time_factor = Random.rand(1..4)
+    random_time_factor = Random.rand(1..20)
 
-    client { 'John' }
+    client { Faker::FunnyName.name }
     start_at  { Faker::Date.between(random_time_factor.days.ago, DateTime.current) }
     end_at  { Faker::Date.between(random_time_factor.days.ago, DateTime.current) }
     observations { Faker::Pokemon.name + ' tattoo'}

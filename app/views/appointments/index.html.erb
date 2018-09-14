@@ -19,8 +19,11 @@
         <td><%= appointment.start_at %></td>
         <td><%= appointment.end_at %></td>
         <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment), id: "edit-#{appointment.id}" %></td>
+        <td>
+          <%= link_to 'Destroy', appointment, method: :delete,
+                data: { confirm: 'Are you sure?' }, id: "destroy-#{appointment.id}" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
