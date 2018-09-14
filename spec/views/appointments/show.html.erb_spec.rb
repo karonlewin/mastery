@@ -2,10 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "appointments/show", type: :view do
   before(:each) do
-    @appointment = assign(:appointment, Appointment.create!())
+    @appointment = assign(:appointment, Appointment.create!(
+      :client => "Client"
+    ))
   end
 
   it "renders attributes in <p>" do
     render
+    expect(rendered).to match(/Client/)
   end
 end

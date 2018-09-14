@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :client %>
+    <%= form.text_field :client, id: :appointment_client %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_at %>
+    <%= form.datetime_select :start_at, id: :appointment_start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_at %>
+    <%= form.datetime_select :end_at, id: :appointment_end_at %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

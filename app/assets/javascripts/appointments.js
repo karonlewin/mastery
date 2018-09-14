@@ -1,5 +1,8 @@
 $(function() {
   $('#calendar').fullCalendar({
-    events: '/appointments.json'
+    events: '/appointments.json',
+    eventClick: function(event) {
+      return false;
+    }
   });
 });
