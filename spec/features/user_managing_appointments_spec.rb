@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User managing appointments:' do
+  before { warden_sign_in user }
 
+  let(:user) { create :user }
   let!(:appointment) { create :appointment }
 
   scenario 'listing all appointments' do
