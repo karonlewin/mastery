@@ -4,7 +4,7 @@ RSpec.feature 'User managing appointments:' do
 
   let!(:appointment) { create :appointment }
 
-  it 'User list all appointments' do
+  scenario 'listing all appointments' do
     visit appointments_path
 
     expect(page).to have_content(appointment.client)
@@ -12,7 +12,7 @@ RSpec.feature 'User managing appointments:' do
     expect(page).to have_content(appointment.end_at)
   end
 
-  it 'User creates a new appointment' do
+  scenario 'creating a new appointment' do
     visit appointments_path
 
     click_link 'New Appointment'
@@ -28,7 +28,7 @@ RSpec.feature 'User managing appointments:' do
     expect(page).to have_content(appointment.end_at)
   end
 
-  it 'User edits an appointment' do
+  scenario 'editing an appointment' do
     edited_appointment = build :appointment
     visit appointments_path
 
@@ -45,7 +45,7 @@ RSpec.feature 'User managing appointments:' do
     expect(page).to have_content(edited_appointment.end_at)
   end
 
-  it 'User deletes an appointment' do
+  scenario 'deleting an appointment' do
     visit appointments_path
 
     expect { click_link("destroy-#{appointment.id}") }.to change(Appointment, :count).by(-1)
