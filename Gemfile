@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# MASTERY.INK
+# MASTERY.PET
 gem 'jquery-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
