@@ -23,8 +23,8 @@ RSpec.describe Appointment, type: :model do
     expect(appointment).to_not be_valid
   end
 
-  xit 'is not valid without a studio' do
-    appointment.studio = nil
+  xit 'is not valid without a store' do
+    appointment.store = nil
     expect(appointment).to_not be_valid
   end
 end
