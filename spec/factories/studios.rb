@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :studio do
+  factory :store do
     name { Faker::RickAndMorty.location }
   end
 end

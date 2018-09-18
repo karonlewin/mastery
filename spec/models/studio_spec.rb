@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Studio, type: :model do
-  let(:studio) { build(:studio) }
+RSpec.describe Store, type: :model do
+  let(:store) { build(:store) }
 
   it 'is not valid without a name' do
-    studio.name = nil
-    expect(studio).to_not be_valid
+    store.name = nil
+    expect(store).to_not be_valid
   end
 end
