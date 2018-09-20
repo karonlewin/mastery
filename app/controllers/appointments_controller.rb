@@ -26,6 +26,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
+    @appointment.store = current_user.store
 
     respond_to do |format|
       if @appointment.save
