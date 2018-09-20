@@ -3,5 +3,5 @@ class User < ApplicationRecord
          :trackable, :recoverable, :rememberable, :validatable
 
   has_many :appointment
-  # belongs_to :store
+  belongs_to :store, optional: true
 end
