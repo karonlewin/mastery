@@ -7,7 +7,7 @@ RSpec.feature 'User at dashboard:' do
   it 'User see all appointments on calendar', js: true do
     visit dashboard_path
 
-    expect(page).to have_text(appointment.client)
+    expect(page).to have_text(appointment.client.name)
   end
 
 end
