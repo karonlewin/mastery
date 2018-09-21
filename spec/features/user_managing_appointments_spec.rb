@@ -4,12 +4,13 @@ RSpec.feature 'User managing appointments:' do
   before { warden_sign_in user }
 
   let(:user) { create :user }
+  let!(:client) { create :client }
   let!(:appointment) { create :appointment }
 
   scenario 'listing all appointments' do
     visit appointments_path
 
-    expect(page).to have_content(appointment.client)
+    expect(page).to have_content(appointment.client.name)
     expect(page).to have_content(appointment.start_at)
     expect(page).to have_content(appointment.end_at)
   end
@@ -19,30 +20,33 @@ RSpec.feature 'User managing appointments:' do
 
     click_link 'New Appointment'
 
-    fill_in 'Client', :with => appointment.client
+    select(client.name, :from => 'appointment[client_id]')
     fill_in 'Start at', :with => appointment.start_at
     fill_in 'End at', :with => appointment.end_at
+
     click_button 'Create Appointment'
 
     expect(page).to have_content('Appointment was successfully created.')
-    expect(page).to have_content(appointment.client)
+    expect(page).to have_content(client.name)
     expect(page).to have_content(appointment.start_at)
     expect(page).to have_content(appointment.end_at)
   end
 
   scenario 'editing an appointment' do
     edited_appointment = build :appointment
+    other_client = create :client
     visit appointments_path
 
     click_link("edit-#{appointment.id}")
 
-    fill_in 'Client', :with => edited_appointment.client
+    select(other_client.name, :from => 'appointment[client_id]')
     fill_in 'Start at', :with => edited_appointment.start_at
     fill_in 'End at', :with => edited_appointment.end_at
+
     click_button 'Update Appointment'
 
     expect(page).to have_content('Appointment was successfully updated.')
-    expect(page).to have_content(edited_appointment.client)
+    expect(page).to have_content(other_client.name)
     expect(page).to have_content(edited_appointment.start_at)
     expect(page).to have_content(edited_appointment.end_at)
   end
