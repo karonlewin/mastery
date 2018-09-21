@@ -4,4 +4,5 @@ class User < ApplicationRecord
 
   has_many :appointment
   belongs_to :store, optional: true
+  belongs_to :employee
 end

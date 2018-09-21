@@ -29,8 +29,8 @@ RSpec.feature 'User registration and access:' do
 
   end
 
-  context 'signing up' do
-
+  #TODO: need to choose if users will register or admin will register users
+  skip 'signing up' do
     let!(:unregistered_user) { build :user }
 
     scenario 'with valid credentials' do
