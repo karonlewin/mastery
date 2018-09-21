@@ -15,8 +15,8 @@
       <tr>
         <td><%= employee.name %></td>
         <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee), id: "edit-#{employee.id}" %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy-#{employee.id}" %></td>
       </tr>
     <% end %>
   </tbody>

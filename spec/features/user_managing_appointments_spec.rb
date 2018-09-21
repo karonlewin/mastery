@@ -6,6 +6,7 @@ RSpec.feature 'User managing appointments:' do
   let(:user) { create :user }
   let!(:client) { create :client }
   let!(:appointment) { create :appointment }
+  let!(:new_appointment) { build :appointment }
 
   scenario 'listing all appointments' do
     visit appointments_path
@@ -21,15 +22,15 @@ RSpec.feature 'User managing appointments:' do
     click_link 'New Appointment'
 
     select(client.name, :from => 'appointment[client_id]')
-    fill_in 'Start at', :with => appointment.start_at
-    fill_in 'End at', :with => appointment.end_at
+    fill_in 'Start at', :with => new_appointment.start_at
+    fill_in 'End at', :with => new_appointment.end_at
 
     click_button 'Create Appointment'
 
     expect(page).to have_content('Appointment was successfully created.')
     expect(page).to have_content(client.name)
-    expect(page).to have_content(appointment.start_at)
-    expect(page).to have_content(appointment.end_at)
+    expect(page).to have_content(new_appointment.start_at)
+    expect(page).to have_content(new_appointment.end_at)
   end
 
   scenario 'editing an appointment' do
