@@ -14,7 +14,6 @@
   <div class="field">
     <%= form.label :client_id %>
     <%= form.collection_select(:client_id, Client.all, :id, :name, :prompt => 'Select a Client') %>
-
   </div>
 
   <div class="field">
