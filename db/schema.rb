@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920175543) do
+ActiveRecord::Schema.define(version: 20180925173150) do
 
   create_table "appointments", force: :cascade do |t|
     t.text "observations"
@@ -29,6 +29,31 @@ ActiveRecord::Schema.define(version: 20180920175543) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "mobile_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.decimal "total"
+    t.integer "client_id"
+    t.integer "store_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_sales_on_client_id"
+    t.index ["store_id"], name: "index_sales_on_store_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,8 +82,10 @@ ActiveRecord::Schema.define(version: 20180920175543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "store_id"
+    t.integer "employee_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["employee_id"], name: "index_users_on_employee_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["store_id"], name: "index_users_on_store_id"
   end

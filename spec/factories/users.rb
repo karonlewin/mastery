@@ -4,5 +4,6 @@ FactoryBot.define do
     password { 'password' }
     confirmed_at { DateTime.now }
     association :store, strategy: :create
+    association :employee, strategy: :create
   end
 end

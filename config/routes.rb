@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :sales
+  resources :services
+  resources :employees
   resources :clients
   devise_for :users
   resources :appointments
