@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
+    @client.store = current_user.store
 
     respond_to do |format|
       if @client.save
