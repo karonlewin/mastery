@@ -7,8 +7,8 @@ FactoryBot.define do
     start_at  { Faker::Date.between(random_time_factor.days.ago, DateTime.current) }
     end_at  { Faker::Date.between(random_time_factor.days.ago, DateTime.current) }
     observations { Faker::Pokemon.name + ' tattoo'}
-    association :store, strategy: :build
-    association :user, strategy: :build
-    association :client, strategy: :build
+    association :store, strategy: :create
+    association :user, strategy: :create
+    association :client, strategy: :create
   end
 end
