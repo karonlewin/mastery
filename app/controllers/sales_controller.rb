@@ -26,7 +26,6 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.user = current_user
-    @sale.store = current_user.store
 
     respond_to do |format|
       if @sale.save
