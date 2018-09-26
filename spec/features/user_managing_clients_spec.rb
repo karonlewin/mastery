@@ -26,6 +26,7 @@ RSpec.feature 'User managing clients:' do
 
     expect(page).to have_content('Client was successfully created.')
     expect(page).to have_content(new_client.name)
+    expect(page).to have_content(new_client.mobile_number)
   end
 
   scenario 'editing an client' do
@@ -41,6 +42,7 @@ RSpec.feature 'User managing clients:' do
 
     expect(page).to have_content('Client was successfully updated.')
     expect(page).to have_content(edited_client.name)
+    expect(page).to have_content(edited_client.mobile_number)
   end
 
   scenario 'deleting an client' do

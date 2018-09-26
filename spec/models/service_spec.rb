@@ -12,9 +12,4 @@ RSpec.describe Service, type: :model do
     service.price = nil
     expect(service).to_not be_valid
   end
-
-  it 'is not valid without a store' do
-    service.store = nil
-    expect(service).to_not be_valid
-  end
 end

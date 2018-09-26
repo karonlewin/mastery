@@ -12,9 +12,4 @@ RSpec.describe Client, type: :model do
     client.mobile_number = nil
     expect(client).to_not be_valid
   end
-
-  it 'is not valid without a store' do
-    client.store = nil
-    expect(client).to_not be_valid
-  end
 end

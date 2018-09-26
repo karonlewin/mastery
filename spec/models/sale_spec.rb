@@ -8,11 +8,6 @@ RSpec.describe Sale, type: :model do
     expect(sale).to_not be_valid
   end
 
-  it 'is not valid without a store' do
-    sale.store = nil
-    expect(sale).to_not be_valid
-  end
-
   it 'is not valid without a user' do
     sale.user = nil
     expect(sale).to_not be_valid

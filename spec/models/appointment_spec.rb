@@ -22,9 +22,4 @@ RSpec.describe Appointment, type: :model do
     appointment.user = nil
     expect(appointment).to_not be_valid
   end
-
-  it 'is not valid without a store' do
-    appointment.store = nil
-    expect(appointment).to_not be_valid
-  end
 end
